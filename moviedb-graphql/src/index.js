@@ -1,5 +1,5 @@
-import { ApolloServer, gql } from 'apollo-server';
-import { MovieDBAPI } from './datasource';
+const { ApolloServer, gql } = require('apollo-server');
+const { MovieDBAPI } = require('./datasource');
  
 const typeDefs = gql`
   type Query {
@@ -46,3 +46,4 @@ const server = new ApolloServer({
 server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
+

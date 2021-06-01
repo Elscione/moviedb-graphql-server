@@ -1,6 +1,6 @@
-import { RESTDataSource } from 'apollo-datasource-rest';
+const { RESTDataSource } = require('apollo-datasource-rest');
 
-export class MovieDBAPI extends RESTDataSource {
+class MovieDBAPI extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = 'https://api.themoviedb.org/3/';
@@ -14,3 +14,6 @@ export class MovieDBAPI extends RESTDataSource {
     return this.get('discover/movie');
   }
 }
+
+module.exports = { MovieDBAPI };
+
