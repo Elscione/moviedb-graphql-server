@@ -3,8 +3,11 @@ const { MovieDBAPI } = require('./datasource');
  
 const typeDefs = gql`
   type Query {
-    discover_movies(page: Int): DiscoverMovies
+    discover_movies(input: DiscoverMoviesParams): DiscoverMovies
   },
+  input DiscoverMoviesParams {
+    page: Int
+  }
   type DiscoverMovies {
   	page: Int
   	results: [Movie]
