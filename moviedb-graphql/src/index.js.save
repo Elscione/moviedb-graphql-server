@@ -3,7 +3,7 @@ const { MovieDBAPI } = require('./datasource');
  
 const typeDefs = gql`
   type Query {
-    discover_movies(page: Int): DiscoverMovies
+    discover_movies: DiscoverMovies
   },
   type DiscoverMovies {
   	page: Int
@@ -31,12 +31,13 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    discover_movies: (parents, args, context, info) => context.dataSources.movieDBAPI.discoverMovies(args.page),
+    discover_movies: (parents, args, context, info)clear => 
+dataSources.movieDBAPI.discoverMovies(),
   },
 };
 
 const server = new ApolloServer({
-  typeDefs,
+:q typeDefs,
   resolvers,
   dataSources: () => ({
     movieDBAPI: new MovieDBAPI()
