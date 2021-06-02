@@ -33,6 +33,9 @@ const resolvers = {
   Query: {
     discover_movies: (parents, args, context, info) => context.dataSources.movieDBAPI.discoverMovies(args.page),
   },
+  Movie: {
+    poster_path: (parents, args, context, info) => "https://image.tmdb.org/t/p/w500" + parents.poster_path
+  }
 };
 
 const server = new ApolloServer({
